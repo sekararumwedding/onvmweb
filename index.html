@@ -1,1 +1,672 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- 🔹 Primary Meta Tags -->
+    <title>OnvmWeb Studio | Jasa Pembuatan Website Profesional di Batang</title>
+    <meta name="title" content="OnvmWeb Studio | Jasa Pembuatan Website Profesional di Batang">
+    <meta name="description" content="OnvmWeb Studio membantu UMKM & profesional di Batang memiliki website mewah: Landing Page, Company Profile, E-Commerce. Cepat, modern, & responsif.">
+    <meta name="keywords" content="jasa website batang, pembuatan website, landing page, company profile, e-commerce, onvmweb, web developer batang">
+    <meta name="author" content="OnvmWeb Studio">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://onvmweb.github.io">
 
+    <!-- 🔹 Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://onvmweb.github.io">
+    <meta property="og:title" content="OnvmWeb Studio | Jasa Website Profesional">
+    <meta property="og:description" content="Solusi website untuk UMKM & profesional di Batang. Cepat, modern, & responsif.">
+    <meta property="og:image" content="https://i.ibb.co.com/5hV6sKdz/download.jpg">
+
+    <!-- 🔹 Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://onvmweb.github.io">
+    <meta property="twitter:title" content="OnvmWeb Studio | Jasa Website Profesional">
+    <meta property="twitter:description" content="Solusi website untuk UMKM & profesional di Batang. Cepat, modern, & responsif.">
+    <meta property="twitter:image" content="https://i.ibb.co.com/5hV6sKdz/download.jpg">
+
+    <!-- 🔹 Favicon -->
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+    <!-- 🔹 Fonts & Icons (CDN) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <style>
+        /* ===== 🎨 CSS VARIABLES ===== */
+        :root {
+            --primary: #0066FF;
+            --primary-dark: #0052cc;
+            --dark: #0A0A0B;
+            --secondary: #1F1F21;
+            --text-gray: #A1A1AA;
+            --white: #FFFFFF;
+            --success: #22c55e;
+            --shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        /* ===== 🔄 RESET & BASE ===== */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background-color: var(--dark); 
+            color: var(--white); 
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        h1, h2, h3, h4 { font-family: 'Space Grotesk', sans-serif; line-height: 1.2; }
+        a { text-decoration: none; color: inherit; transition: 0.3s; }
+        ul { list-style: none; }
+        img { max-width: 100%; display: block; }
+
+        /* ===== 🧭 NAVBAR ===== */
+        nav {
+            position: fixed; top: 0; width: 100%; padding: 1rem 8%;
+            display: flex; justify-content: space-between; align-items: center;
+            background: rgba(10, 10, 11, 0.9); backdrop-filter: blur(20px); 
+            z-index: 1000; border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+        .logo { font-size: 1.5rem; font-weight: 800; letter-spacing: -1px; color: var(--primary); }
+        .logo span { color: var(--white); }
+        
+        .nav-links { display: flex; align-items: center; gap: 25px; }
+        .nav-links a { color: var(--text-gray); font-size: 0.95rem; font-weight: 500; }
+        .nav-links a:hover, .nav-links a.active { color: var(--primary); }
+        
+        .nav-cta { 
+            padding: 10px 24px; background: var(--primary); color: white; 
+            border-radius: 8px; font-weight: 600; font-size: 0.9rem;
+        }
+        .nav-cta:hover { background: var(--primary-dark); transform: translateY(-2px); }
+        .menu-toggle { display: none; font-size: 1.5rem; color: var(--white); cursor: pointer; }
+
+        /* ===== 🦸 HERO SECTION ===== */
+        .hero {
+            min-height: 100vh; display: flex; align-items: center; justify-content: center;
+            background: 
+                radial-gradient(ellipse at top right, rgba(0,102,255,0.15), transparent 60%),
+                radial-gradient(ellipse at bottom left, rgba(0,102,255,0.1), transparent 60%);
+            text-align: center; padding: 120px 5% 80px;
+        }
+        .hero-badge {
+            display: inline-flex; align-items: center; gap: 8px;
+            padding: 8px 20px; background: rgba(0,102,255,0.15);
+            border: 1px solid rgba(0,102,255,0.3); border-radius: 50px;
+            color: var(--primary); font-weight: 600; font-size: 0.9rem;
+            margin-bottom: 24px;
+        }
+        .hero h1 { font-size: clamp(2.5rem, 8vw, 5rem); margin-bottom: 24px; letter-spacing: -2px; }
+        .hero h1 span { color: var(--primary); }
+        .hero p { color: var(--text-gray); max-width: 650px; margin: 0 auto 40px; font-size: 1.15rem; }
+        .hero-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+
+        /* ===== 🎯 BUTTONS ===== */
+        .btn {
+            padding: 16px 32px; border-radius: 10px; font-weight: 700; font-size: 1rem; 
+            cursor: pointer; border: none; display: inline-flex; align-items: center; gap: 10px;
+            transition: all 0.3s ease;
+        }
+        .btn-primary { background: var(--primary); color: var(--white); box-shadow: 0 10px 30px rgba(0, 102, 255, 0.35); }
+        .btn-primary:hover { background: var(--primary-dark); transform: translateY(-4px); box-shadow: 0 15px 40px rgba(0, 102, 255, 0.5); }
+        .btn-outline { background: transparent; border: 2px solid var(--primary); color: var(--primary); }
+        .btn-outline:hover { background: var(--primary); color: var(--white); }
+        .btn-whatsapp { background: #25D366; color: white; box-shadow: 0 10px 30px rgba(37, 211, 102, 0.3); }
+        .btn-whatsapp:hover { background: #128C7E; transform: translateY(-4px); box-shadow: 0 15px 40px rgba(37, 211, 102, 0.5); }
+
+        /* ===== 📦 SECTIONS ===== */
+        section { padding: 100px 8%; }
+        .section-header { text-align: center; max-width: 700px; margin: 0 auto 70px; }
+        .section-header h2 { font-size: 2.8rem; margin-bottom: 16px; }
+        .section-header p { color: var(--text-gray); font-size: 1.1rem; }
+
+        /* ===== ⚡ SERVICES GRID ===== */
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; }
+        .service-card {
+            background: var(--secondary); padding: 40px 32px; border-radius: 20px;
+            border: 1px solid rgba(255,255,255,0.05); transition: 0.4s ease;
+        }
+        .service-card:hover { border-color: var(--primary); transform: translateY(-8px); box-shadow: 0 20px 50px rgba(0,0,0,0.4); }
+        .service-icon {
+            width: 70px; height: 70px; background: rgba(0,102,255,0.15);
+            border-radius: 16px; display: flex; align-items: center; justify-content: center;
+            font-size: 1.8rem; color: var(--primary); margin-bottom: 24px;
+        }
+        .service-card h3 { font-size: 1.5rem; margin-bottom: 12px; }
+        .service-card p { color: var(--text-gray); font-size: 1rem; }
+
+        /* ===== 🖼️ PORTFOLIO ===== */
+        #portfolio { background: linear-gradient(180deg, var(--dark), #0d0d0e); }
+        
+        /* Featured Project */
+        .portfolio-showcase {
+            background: linear-gradient(135deg, #1F1F21, #151517);
+            border-radius: 28px; padding: 50px; display: flex; align-items: center; 
+            gap: 60px; flex-wrap: wrap; border: 1px solid rgba(255,255,255,0.08);
+            margin-bottom: 60px;
+        }
+        .portfolio-media {
+            flex: 1; min-width: 300px; position: relative; border-radius: 16px; 
+            overflow: hidden; box-shadow: var(--shadow); cursor: pointer;
+        }
+        .portfolio-media img { width: 100%; transition: 0.5s ease; }
+        .portfolio-media:hover img { transform: scale(1.03); }
+        .play-overlay {
+            position: absolute; inset: 0; background: rgba(0,0,0,0.4);
+            display: flex; align-items: center; justify-content: center;
+            opacity: 0; transition: 0.3s;
+        }
+        .portfolio-media:hover .play-overlay { opacity: 1; }
+        .play-btn {
+            width: 80px; height: 80px; background: var(--primary); border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            color: white; font-size: 1.8rem; box-shadow: 0 10px 40px rgba(0,102,255,0.5);
+            transition: 0.3s;
+        }
+        .play-btn:hover { transform: scale(1.1); }
+        .portfolio-content { flex: 1; min-width: 300px; }
+        .portfolio-content h3 { font-size: 2.2rem; margin-bottom: 20px; }
+        .portfolio-content p { color: var(--text-gray); margin-bottom: 30px; font-size: 1.05rem; }
+        .portfolio-links { display: flex; gap: 16px; flex-wrap: wrap; }
+
+        /* Gallery Grid */
+        .gallery-title { text-align: center; margin: 60px 0 30px; }
+        .gallery-title h3 { font-size: 2rem; margin-bottom: 10px; }
+        .gallery-title p { color: var(--text-gray); }
+        
+        .gallery-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        .gallery-item {
+            position: relative; border-radius: 16px; overflow: hidden;
+            aspect-ratio: 4/3; cursor: pointer; group: gallery;
+            border: 2px solid transparent; transition: 0.3s;
+        }
+        .gallery-item:hover { border-color: var(--primary); transform: translateY(-5px); }
+        .gallery-item img {
+            width: 100%; height: 100%; object-fit: cover; transition: 0.4s;
+        }
+        .gallery-item:hover img { transform: scale(1.08); }
+        .gallery-overlay {
+            position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            display: flex; align-items: flex-end; padding: 20px; opacity: 0; transition: 0.3s;
+        }
+        .gallery-item:hover .gallery-overlay { opacity: 1; }
+        .gallery-overlay span {
+            color: white; font-weight: 600; font-size: 0.95rem;
+            display: flex; align-items: center; gap: 8px;
+        }
+        .gallery-overlay i { color: var(--primary); }
+
+        /* ===== 📬 CONTACT SECTION ===== */
+        .contact-wrapper { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 40px; margin-top: 30px; }
+        .contact-card { background: var(--secondary); padding: 40px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.05); }
+        .contact-info h3 { margin-bottom: 28px; font-size: 1.8rem; }
+        .contact-item { display: flex; align-items: flex-start; gap: 16px; margin-bottom: 28px; }
+        .contact-item i {
+            width: 44px; height: 44px; background: rgba(0,102,255,0.15);
+            border-radius: 12px; display: flex; align-items: center; justify-content: center;
+            color: var(--primary); font-size: 1.2rem; flex-shrink: 0;
+        }
+        .contact-item a { color: var(--text-gray); font-weight: 500; }
+        .contact-item a:hover { color: var(--primary); }
+        .social-links { display: flex; gap: 16px; margin-top: 20px; }
+        .social-links a {
+            width: 48px; height: 48px; background: rgba(255,255,255,0.08);
+            border-radius: 12px; display: flex; align-items: center; justify-content: center;
+            font-size: 1.3rem; transition: 0.3s;
+        }
+        .social-links a:hover { background: var(--primary); transform: translateY(-4px); }
+
+        /* Contact Form */
+        .contact-form h3 { margin-bottom: 28px; font-size: 1.8rem; }
+        .form-group { margin-bottom: 22px; }
+        .form-group label { display: block; margin-bottom: 10px; color: var(--text-gray); font-size: 0.95rem; font-weight: 500; }
+        .form-group input, .form-group textarea {
+            width: 100%; padding: 16px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.1);
+            background: var(--dark); color: var(--white); font-family: inherit; font-size: 1rem; transition: 0.3s;
+        }
+        .form-group input:focus, .form-group textarea:focus { outline: none; border-color: var(--primary); box-shadow: 0 0 0 4px rgba(0,102,255,0.15); }
+        .form-group textarea { min-height: 130px; resize: vertical; }
+        .form-submit { width: 100%; justify-content: center; }
+
+        /* Google Maps */
+        .map-wrapper { margin-top: 50px; }
+        .map-container { border-radius: 20px; overflow: hidden; border: 1px solid rgba(255,255,255,0.08); background: var(--secondary); }
+        .map-container iframe { width: 100%; height: 380px; border: 0; display: block; }
+        .map-link { display: block; text-align: center; padding: 18px; color: var(--primary); font-weight: 600; font-size: 0.95rem; }
+        .map-link:hover { color: var(--white); background: rgba(0,102,255,0.1); }
+
+        /* ===== 🦶 FOOTER ===== */
+        footer { border-top: 1px solid rgba(255,255,255,0.08); padding: 50px 8% 30px; text-align: center; color: var(--text-gray); }
+        .footer-logo { font-size: 1.6rem; font-weight: 800; color: var(--primary); margin-bottom: 15px; display: block; }
+        .footer-logo span { color: var(--white); }
+        footer p { margin-top: 20px; font-size: 0.95rem; }
+
+        /* ===== 📱 FLOATING WHATSAPP ===== */
+        .wa-float {
+            position: fixed; bottom: 28px; right: 28px; width: 64px; height: 64px; 
+            background: #25D366; border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            color: white; font-size: 2rem; box-shadow: 0 12px 40px rgba(37,211,102,0.45);
+            z-index: 9999; transition: 0.3s; animation: pulse 2s infinite;
+        }
+        .wa-float:hover { transform: scale(1.1); animation: none; }
+        @keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(37,211,102,0.6); } 70% { box-shadow: 0 0 0 20px rgba(37,211,102,0); } 100% { box-shadow: 0 0 0 0 rgba(37,211,102,0); } }
+        .wa-tooltip {
+            position: fixed; bottom: 105px; right: 28px; background: var(--secondary); 
+            padding: 12px 20px; border-radius: 12px; font-size: 0.9rem; font-weight: 500; 
+            white-space: nowrap; box-shadow: var(--shadow); animation: slideUp 3s ease-in-out infinite; z-index: 9998;
+        }
+        @keyframes slideUp { 0%, 100% { opacity: 0; transform: translateY(10px); } 15%, 85% { opacity: 1; transform: translateY(0); } }
+
+        /* ===== 🎬 VIDEO MODAL ===== */
+        .modal {
+            display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.92);
+            z-index: 10000; align-items: center; justify-content: center; padding: 20px;
+        }
+        .modal.active { display: flex; }
+        .modal-content {
+            background: var(--secondary); border-radius: 24px; padding: 30px;
+            max-width: 900px; width: 100%; max-height: 90vh; overflow-y: auto;
+            position: relative; border: 1px solid rgba(255,255,255,0.1);
+        }
+        .modal-close {
+            position: absolute; top: 20px; right: 24px; font-size: 2rem;
+            color: var(--text-gray); cursor: pointer; transition: 0.3s;
+            width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; border-radius: 10px;
+        }
+        .modal-close:hover { background: rgba(255,255,255,0.1); color: var(--white); }
+        .modal-video { width: 100%; border-radius: 16px; margin-top: 10px; aspect-ratio: 16/9; background: #000; }
+        .modal-video iframe { width: 100%; height: 100%; border-radius: 16px; border: none; }
+
+        /* ===== 🖼️ LIGHTBOX MODAL ===== */
+        .lightbox {
+            display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.95);
+            z-index: 10001; align-items: center; justify-content: center; padding: 20px;
+        }
+        .lightbox.active { display: flex; }
+        .lightbox-img { max-width: 95%; max-height: 90vh; border-radius: 12px; box-shadow: 0 20px 60px rgba(0,0,0,0.5); }
+        .lightbox-close {
+            position: absolute; top: 20px; right: 24px; font-size: 2.5rem;
+            color: white; cursor: pointer; transition: 0.3s;
+        }
+        .lightbox-close:hover { color: var(--primary); }
+        .lightbox-nav {
+            position: absolute; top: 50%; transform: translateY(-50%);
+            background: rgba(255,255,255,0.1); border: none; color: white;
+            font-size: 2rem; padding: 15px 20px; cursor: pointer; border-radius: 50%;
+            transition: 0.3s;
+        }
+        .lightbox-nav:hover { background: var(--primary); }
+        .lightbox-prev { left: 20px; }
+        .lightbox-next { right: 20px; }
+        .lightbox-caption {
+            position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%);
+            color: white; background: rgba(0,0,0,0.6); padding: 10px 25px;
+            border-radius: 30px; font-size: 0.95rem;
+        }
+
+        /* ===== 📱 RESPONSIVE ===== */
+        @media (max-width: 992px) {
+            .portfolio-showcase { padding: 40px 30px; gap: 40px; }
+            .portfolio-content h3 { font-size: 2rem; }
+        }
+        @media (max-width: 768px) {
+            nav { padding: 1rem 5%; }
+            .menu-toggle { display: block; }
+            .nav-links {
+                position: fixed; top: 70px; left: 0; right: 0; background: var(--secondary);
+                flex-direction: column; padding: 30px; gap: 20px; border-bottom: 1px solid rgba(255,255,255,0.08);
+                transform: translateY(-150%); transition: 0.4s ease;
+            }
+            .nav-links.active { transform: translateY(0); }
+            .nav-cta { width: 100%; text-align: center; }
+            .hero { padding: 100px 5% 60px; }
+            .hero h1 { font-size: clamp(2.2rem, 9vw, 4rem); }
+            .hero-buttons { flex-direction: column; align-items: center; }
+            .btn { width: 100%; max-width: 320px; justify-content: center; }
+            section { padding: 80px 5%; }
+            .section-header h2 { font-size: 2.3rem; }
+            .portfolio-showcase { padding: 35px 25px; text-align: center; }
+            .portfolio-links { justify-content: center; }
+            .contact-wrapper { grid-template-columns: 1fr; }
+            .map-container iframe { height: 300px; }
+            .wa-float { width: 56px; height: 56px; font-size: 1.7rem; bottom: 20px; right: 20px; }
+            .wa-tooltip { display: none; }
+            .lightbox-nav { padding: 12px 16px; font-size: 1.5rem; }
+            .lightbox-prev { left: 10px; }
+            .lightbox-next { right: 10px; }
+        }
+        @media (max-width: 480px) {
+            .hero h1 { font-size: 2.3rem; letter-spacing: -1px; }
+            .section-header h2 { font-size: 2rem; }
+            .portfolio-content h3 { font-size: 1.7rem; }
+            .modal-content, .lightbox { padding: 20px 15px; }
+        }
+
+        /* ===== 🎨 UTILITIES ===== */
+        .text-primary { color: var(--primary); }
+        .text-center { text-align: center; }
+        .mt-20 { margin-top: 20px; }
+        .mb-30 { margin-bottom: 30px; }
+        .hidden { display: none !important; }
+    </style>
+</head>
+<body>
+
+    <!-- 🧭 NAVBAR -->
+    <nav>
+        <a href="#" class="logo">ONVM<span>WEB.</span></a>
+        <div class="menu-toggle" id="menuToggle" aria-label="Toggle menu"><i class="fas fa-bars"></i></div>
+        <div class="nav-links" id="navLinks">
+            <a href="#home">Home</a>
+            <a href="#services">Layanan</a>
+            <a href="#portfolio">Portofolio</a>
+            <a href="#kontak">Kontak</a>
+            <a href="https://wa.me/62818657329" class="nav-cta" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+        </div>
+    </nav>
+
+    <!-- 🦸 HERO SECTION -->
+    <section class="hero" id="home">
+        <div data-aos="fade-up">
+            <div class="hero-badge"><i class="fas fa-star"></i> #1 Digital Solution in Batang</div>
+            <h1>Solusi <span class="text-primary">Website</span> Untuk Bisnis Anda</h1>
+            <p>Kami membantu UMKM & Profesional memiliki website mewah dengan teknologi terbaru. Cepat, responsif, dan SEO-friendly.</p>
+            <div class="hero-buttons">
+                <a href="https://wa.me/62818657329" class="btn btn-primary" target="_blank"><i class="fab fa-whatsapp"></i> Mulai Proyek</a>
+                <a href="#portfolio" class="btn btn-outline"><i class="fas fa-play-circle"></i> Lihat Portofolio</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ⚡ SERVICES SECTION -->
+    <section id="services" data-aos="fade-up">
+        <div class="section-header">
+            <h2>Layanan Kami</h2>
+            <p>Pilih paket website yang sesuai dengan kebutuhan dan anggaran bisnis Anda.</p>
+        </div>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon"><i class="fas fa-rocket"></i></div>
+                <h3>Landing Page</h3>
+                <p>Website satu halaman yang fokus pada konversi penjualan. Sangat cepat, ringan, dan responsif di semua perangkat.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon"><i class="fas fa-briefcase"></i></div>
+                <h3>Company Profile</h3>
+                <p>Tingkatkan kredibilitas perusahaan dengan tampilan profesional, elegan, dan informasi lengkap tentang bisnis Anda.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon"><i class="fas fa-shopping-cart"></i></div>
+                <h3>E-Commerce</h3>
+                <p>Toko online lengkap dengan sistem pembayaran otomatis, hitung ongkir, manajemen produk, dan dashboard admin.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 🖼️ PORTFOLIO SECTION -->
+    <section id="portfolio" data-aos="fade-up">
+        <div class="section-header">
+            <h2>Portofolio Unggulan</h2>
+            <p>Karya terbaru dari OnvmWeb Studio yang telah membantu klien meraih hasil maksimal.</p>
+        </div>
+
+        <!-- Featured Project: Sekar Arum -->
+        <div class="portfolio-showcase">
+            <div class="portfolio-media" onclick="openVideoModal()" role="button" tabindex="0" aria-label="Putar video demo Sekar Arum">
+                <img src="https://i.ibb.co.com/5hV6sKdz/download.jpg" alt="Sekar Arum Wedding - Featured Project">
+                <div class="play-overlay"><div class="play-btn"><i class="fas fa-play"></i></div></div>
+            </div>
+            <div class="portfolio-content">
+                <h3>Sekar Arum Wedding</h3>
+                <p>Website Gallery Wedding mewah dengan fitur Lightbox foto, FAQ interaktif, countdown event, dan integrasi WhatsApp otomatis untuk RSVP.</p>
+                <div class="portfolio-links">
+                    <a href="https://sekararumwedding.github.io/gallery-sekar-arum/" target="_blank" class="btn btn-primary" rel="noopener"><i class="fas fa-external-link-alt"></i> Lihat Live Demo</a>
+                    <button class="btn btn-outline" onclick="openVideoModal(); return false;"><i class="fas fa-video"></i> Video Demo</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Gallery Grid: 4 Images -->
+        <div class="gallery-title" data-aos="fade-up">
+            <h3>Galeri Proyek Lainnya</h3>
+            <p>Klik gambar untuk melihat detail lebih besar</p>
+        </div>
+        <div class="gallery-grid" data-aos="fade-up" data-aos-delay="100">
+            <div class="gallery-item" onclick="openLightbox(0)" role="button" tabindex="0">
+                <img src="https://i.ibb.co.com/VW30Z2bv/download-3.jpg" alt="Portfolio Project 1" loading="lazy">
+                <div class="gallery-overlay"><span><i class="fas fa-search-plus"></i> Lihat Detail</span></div>
+            </div>
+            <div class="gallery-item" onclick="openLightbox(1)" role="button" tabindex="0">
+                <img src="https://i.ibb.co.com/84BgTqTh/download-2.jpg" alt="Portfolio Project 2" loading="lazy">
+                <div class="gallery-overlay"><span><i class="fas fa-search-plus"></i> Lihat Detail</span></div>
+            </div>
+            <div class="gallery-item" onclick="openLightbox(2)" role="button" tabindex="0">
+                <img src="https://i.ibb.co.com/dsLXsky9/download-1.jpg" alt="Portfolio Project 3" loading="lazy">
+                <div class="gallery-overlay"><span><i class="fas fa-search-plus"></i> Lihat Detail</span></div>
+            </div>
+            <div class="gallery-item" onclick="openLightbox(3)" role="button" tabindex="0">
+                <img src="https://i.ibb.co.com/5hV6sKdz/download.jpg" alt="Portfolio Project 4" loading="lazy">
+                <div class="gallery-overlay"><span><i class="fas fa-search-plus"></i> Lihat Detail</span></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 📬 CONTACT SECTION -->
+    <section id="kontak" data-aos="fade-up">
+        <div class="section-header">
+            <h2>Hubungi Kami</h2>
+            <p>Siap mewujudkan website impian Anda? Hubungi kami untuk konsultasi gratis!</p>
+        </div>
+        <div class="contact-wrapper">
+            <div class="contact-card contact-info">
+                <h3>Informasi Kontak</h3>
+                <div class="contact-item">
+                    <i class="fab fa-whatsapp"></i>
+                    <div><strong>WhatsApp</strong><br><a href="https://wa.me/62818657329" target="_blank">+62 818-657-329</a></div>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <div><strong>Email</strong><br><a href="mailto:almanosetiawan@gmail.com">almanosetiawan@gmail.com</a></div>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <div><strong>Lokasi</strong><br><a href="https://maps.app.goo.gl/ogdJUWk1sDkrQAQ16" target="_blank">Batang, Jawa Tengah</a></div>
+                </div>
+                <div>
+                    <strong style="display:block; margin-bottom:12px; color:var(--text-gray)">Ikuti Kami:</strong>
+                    <div class="social-links">
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://wa.me/62818657329" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                        <a href="mailto:almanosetiawan@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <form class="contact-card contact-form" onsubmit="sendToWhatsApp(event)" id="contactForm">
+                <h3>Kirim Pesan</h3>
+                <div class="form-group">
+                    <label for="name">Nama Lengkap *</label>
+                    <input type="text" id="name" name="name" placeholder="Masukkan nama Anda" required>
+                </div>
+                <div class="form-group">
+                    <label for="contact">Email / WhatsApp *</label>
+                    <input type="text" id="contact" name="contact" placeholder="Contoh: 0812xxxx atau email@xxx.com" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Pesan / Kebutuhan *</label>
+                    <textarea id="message" name="message" placeholder="Ceritakan kebutuhan website Anda..." required></textarea>
+                </div>
+                <button type="submit" class="btn btn-whatsapp form-submit"><i class="fab fa-whatsapp"></i> Kirim via WhatsApp</button>
+                <p style="color:var(--text-gray); font-size:0.85rem; margin-top:15px; text-align:center;"><i class="fas fa-lock"></i> Data Anda aman, pesan akan dikirim langsung ke WhatsApp kami.</p>
+            </form>
+        </div>
+
+        <!-- Google Maps -->
+        <div class="map-wrapper" data-aos="fade-up">
+            <div class="map-container">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d254234.5678901234!2d109.6!3d-6.9!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e6fb6f123456789%3A0x1234567890abcdef!2sBatang%2C%20Central%20Java!5e0!3m2!1sen!2sid!4v1234567890123!5m2!1sen!2sid" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Lokasi OnvmWeb Studio di Batang"></iframe>
+            </div>
+            <a href="https://maps.app.goo.gl/ogdJUWk1sDkrQAQ16" target="_blank" class="map-link" rel="noopener"><i class="fas fa-external-link-alt"></i> Buka di Google Maps untuk Navigasi</a>
+        </div>
+    </section>
+
+    <!-- 🦶 FOOTER -->
+    <footer>
+        <a href="#" class="footer-logo">ONVM<span>WEB.</span></a>
+        <p>OnvmWeb Studio &copy; <span id="year"></span>. Semua hak dilindungi.</p>
+        <p style="font-size:0.9rem; margin-top:8px;">Dibuat dengan ❤️ di Batang, Jawa Tengah</p>
+    </footer>
+
+    <!-- 📱 Floating WhatsApp -->
+    <a href="https://wa.me/62818657329" class="wa-float" target="_blank" aria-label="Chat via WhatsApp" title="Chat via WhatsApp"><i class="fab fa-whatsapp"></i></a>
+    <div class="wa-tooltip">💬 Butuh bantuan? Chat kami!</div>
+
+    <!-- 🎬 Video Modal -->
+    <div class="modal" id="videoModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+        <div class="modal-content">
+            <span class="modal-close" onclick="closeVideoModal()" role="button" tabindex="0" aria-label="Tutup video">&times;</span>
+            <h3 id="modalTitle" style="margin-bottom:15px;">🎬 Video Demo: Sekar Arum Wedding</h3>
+            <div class="modal-video">
+                <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1&rel=0" title="Video Demo Sekar Arum Wedding" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            <p style="margin-top:20px; color:var(--text-gray); text-align:center;">Tertarik dengan hasil seperti ini? <a href="https://wa.me/62818657329" style="color:var(--primary); font-weight:600;">Hubungi kami!</a></p>
+        </div>
+    </div>
+
+    <!-- 🖼️ Lightbox Modal for Gallery -->
+    <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image viewer">
+        <span class="lightbox-close" onclick="closeLightbox()" role="button" tabindex="0" aria-label="Tutup">&times;</span>
+        <button class="lightbox-nav lightbox-prev" onclick="changeLightbox(-1)" aria-label="Gambar sebelumnya"><i class="fas fa-chevron-left"></i></button>
+        <img class="lightbox-img" id="lightboxImg" src="" alt="Portfolio preview">
+        <button class="lightbox-nav lightbox-next" onclick="changeLightbox(1)" aria-label="Gambar berikutnya"><i class="fas fa-chevron-right"></i></button>
+        <div class="lightbox-caption" id="lightboxCaption"></div>
+    </div>
+
+    <!-- 🔹 Scripts (CDN) -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
+    <script>
+        // ===== 🎯 INIT AOS ANIMATION =====
+        AOS.init({ duration: 800, once: true, offset: 100 });
+
+        // ===== 📅 AUTO UPDATE YEAR =====
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // ===== 🍔 MOBILE MENU TOGGLE =====
+        const menuToggle = document.getElementById('menuToggle');
+        const navLinks = document.getElementById('navLinks');
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            const icon = menuToggle.querySelector('i');
+            icon.classList.toggle('fa-bars');
+            icon.classList.toggle('fa-times');
+        });
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                menuToggle.querySelector('i').classList.add('fa-bars');
+                menuToggle.querySelector('i').classList.remove('fa-times');
+            });
+        });
+
+        // ===== 🎬 VIDEO MODAL FUNCTIONS =====
+        function openVideoModal() {
+            const modal = document.getElementById('videoModal');
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+            setTimeout(() => modal.querySelector('.modal-close').focus(), 100);
+        }
+        function closeVideoModal() {
+            const modal = document.getElementById('videoModal');
+            modal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+            const iframe = modal.querySelector('iframe');
+            iframe.src = iframe.src;
+        }
+        document.getElementById('videoModal').addEventListener('click', (e) => { if (e.target.id === 'videoModal') closeVideoModal(); });
+        document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeVideoModal(); });
+        document.querySelector('.portfolio-media')?.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openVideoModal(); } });
+        document.querySelector('.modal-close')?.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); closeVideoModal(); } });
+
+        // ===== 🖼️ LIGHTBOX FUNCTIONS =====
+        const galleryImages = [
+            { src: 'https://i.ibb.co.com/VW30Z2bv/download-3.jpg', caption: 'Project Gallery #1' },
+            { src: 'https://i.ibb.co.com/84BgTqTh/download-2.jpg', caption: 'Project Gallery #2' },
+            { src: 'https://i.ibb.co.com/dsLXsky9/download-1.jpg', caption: 'Project Gallery #3' },
+            { src: 'https://i.ibb.co.com/5hV6sKdz/download.jpg', caption: 'Sekar Arum Wedding - Featured' }
+        ];
+        let currentLightboxIndex = 0;
+
+        function openLightbox(index) {
+            currentLightboxIndex = index;
+            updateLightboxImage();
+            document.getElementById('lightbox').classList.add('active');
+            document.body.style.overflow = 'hidden';
+            setTimeout(() => document.querySelector('.lightbox-close').focus(), 100);
+        }
+
+        function closeLightbox() {
+            document.getElementById('lightbox').classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        function changeLightbox(direction) {
+            currentLightboxIndex = (currentLightboxIndex + direction + galleryImages.length) % galleryImages.length;
+            updateLightboxImage();
+        }
+
+        function updateLightboxImage() {
+            const img = document.getElementById('lightboxImg');
+            const caption = document.getElementById('lightboxCaption');
+            img.src = galleryImages[currentLightboxIndex].src;
+            img.alt = galleryImages[currentLightboxIndex].caption;
+            caption.textContent = galleryImages[currentLightboxIndex].caption;
+        }
+
+        document.getElementById('lightbox').addEventListener('click', (e) => { if (e.target.id === 'lightbox') closeLightbox(); });
+        document.addEventListener('keydown', (e) => {
+            if (!document.getElementById('lightbox').classList.contains('active')) return;
+            if (e.key === 'Escape') closeLightbox();
+            if (e.key === 'ArrowLeft') changeLightbox(-1);
+            if (e.key === 'ArrowRight') changeLightbox(1);
+        });
+        document.querySelectorAll('.gallery-item').forEach((item, index) => {
+            item.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openLightbox(index); } });
+        });
+
+        // ===== 📩 FORM TO WHATSAPP =====
+        function sendToWhatsApp(e) {
+            e.preventDefault();
+            const form = e.target;
+            const name = document.getElementById('name').value.trim();
+            const contact = document.getElementById('contact').value.trim();
+            const message = document.getElementById('message').value.trim();
+            if (!name || !contact || !message) { alert('Mohon lengkapi semua field yang wajib diisi.'); return; }
+            const text = `Halo OnvmWeb Studio! 👋%0A%0A*Saya tertarik dengan jasa website Anda.*%0A%0A👤 *Nama:* ${name}%0A📞 *Kontak:* ${contact}%0A💬 *Pesan:* ${message}%0A%0ATerima kasih! 🙏`;
+            const url = `https://wa.me/62818657329?text=${text}`;
+            window.open(url, '_blank', 'noopener,noreferrer');
+            form.reset();
+            alert('✅ Terima kasih! Anda akan diarahkan ke WhatsApp untuk mengirim pesan.');
+        }
+
+        // ===== 🌐 SMOOTH SCROLL =====
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const href = this.getAttribute('href');
+                if (href === '#') return;
+                e.preventDefault();
+                const target = document.querySelector(href);
+                if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            });
+        });
+    </script>
+</body>
+</html>
