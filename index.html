@@ -22,8 +22,15 @@
             display: flex; justify-content: space-between; align-items: center;
             z-index: 1000; border-bottom: 1px solid rgba(255,255,255,0.1);
         }
-        .logo { font-size: 1.5rem; font-weight: 800; color: #0066FF; text-decoration: none; }
-        .logo span { color: #FFFFFF; }
+        .logo { display: flex; align-items: center; }
+        .logo img { 
+            height: 40px; 
+            width: auto; 
+            max-width: 150px; 
+            object-fit: contain;
+            transition: 0.3s;
+        }
+        .logo img:hover { transform: scale(1.05); }
         .nav-links { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
         .nav-links a {
             color: #A1A1AA; text-decoration: none; font-weight: 500;
@@ -52,12 +59,12 @@
         .section-title h2 { font-size: 2.5rem; margin-bottom: 15px; }
         .section-title p { color: #A1A1AA; }
 
-        /* Hero */
+        /* Hero - Background Updated */
         .hero {
             min-height: 100vh; display: flex; align-items: center; justify-content: center;
             text-align: center; padding: 120px 20px 80px;
-            background: linear-gradient(135deg, rgba(10,10,11,0.9), rgba(10,10,11,0.8)),
-                        url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1920') center/cover;
+            background: linear-gradient(135deg, rgba(10,10,11,0.85), rgba(10,10,11,0.75)),
+                        url('https://i.ibb.co.com/wZRb5ptn/Gemini-Generated-Image-ooqnlfooqnlfooqn.png') center/cover no-repeat;
         }
         .hero h1 { font-size: clamp(2.5rem, 8vw, 5rem); margin-bottom: 20px; line-height: 1.1; }
         .hero h1 span { color: #0066FF; }
@@ -140,6 +147,7 @@
 
         /* Footer & Float */
         footer { border-top: 1px solid rgba(255,255,255,0.08); padding: 40px 5%; text-align: center; color: #A1A1AA; }
+        .footer-logo img { height: 35px; margin-bottom: 15px; }
         .wa-float { position: fixed; bottom: 30px; right: 30px; width: 60px; height: 60px; background: #25D366; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 2rem; box-shadow: 0 10px 30px rgba(37,211,102,0.4); z-index: 999; transition: 0.3s; }
         .wa-float:hover { transform: scale(1.1); }
 
@@ -158,6 +166,7 @@
             .map-box iframe { height: 300px; }
             .pricing-grid, .services-grid, .contact-wrapper { grid-template-columns: 1fr; }
             .portfolio-links { justify-content: center; }
+            .logo img { height: 35px; }
         }
     </style>
 </head>
@@ -165,7 +174,9 @@
 
     <!-- Navbar -->
     <nav>
-        <a href="#home" class="logo">ONVM<span>WEB.</span></a>
+        <a href="#home" class="logo">
+            <img src="https://i.ibb.co.com/TB0fDS3v/logo-onvmweb-removebg-preview.png" alt="OnvmWeb Studio Logo">
+        </a>
         <div class="menu-toggle" id="menuToggle"><i class="fas fa-bars"></i></div>
         <div class="nav-links" id="navLinks">
             <a href="#home" class="nav-link active">Home</a>
@@ -302,7 +313,7 @@
         
         <div class="portfolio-showcase">
             <div class="portfolio-img">
-                <img src="https://i.ibb.co.com/5hV6sKdz/download.jpg" alt="Sekar Arum Wedding">
+                <img src="https://i.ibb.co.com/HL7Pfv2V/sekararump.jpg" alt="Sekar Arum Wedding">
             </div>
             <div class="portfolio-content">
                 <h3>Sekar Arum Wedding</h3>
@@ -323,6 +334,10 @@
             <div class="gallery-item"><img src="https://i.ibb.co.com/84BgTqTh/download-2.jpg" alt="Project 2"></div>
             <div class="gallery-item"><img src="https://i.ibb.co.com/dsLXsky9/download-1.jpg" alt="Project 3"></div>
             <div class="gallery-item"><img src="https://i.ibb.co.com/5hV6sKdz/download.jpg" alt="Project 4"></div>
+            <!-- New Portfolio Item Added -->
+            <div class="gallery-item">
+                <img src="https://i.ibb.co.com/wZRb5ptn/Gemini-Generated-Image-ooqnlfooqnlfooqn.png" alt="Gemini Generated Project">
+            </div>
         </div>
     </section>
 
@@ -390,7 +405,9 @@
 
     <!-- Footer -->
     <footer>
-        <div class="logo" style="margin-bottom:15px;">ONVM<span>WEB.</span></div>
+        <a href="#home" class="footer-logo">
+            <img src="https://i.ibb.co.com/TB0fDS3v/logo-onvmweb-removebg-preview.png" alt="OnvmWeb Studio Logo">
+        </a>
         <p>&copy; 2026 OnvmWeb Studio. Semua hak dilindungi.</p>
         <p style="margin-top:10px;">Dibuat dengan ❤️ di Batang, Jawa Tengah</p>
     </footer>
